@@ -7,13 +7,14 @@
 
 import Foundation
 
-import Combine
 
+@available(iOS 13.0.0, *)
 protocol NetworkServiceTypes: AnyObject {
     
     @discardableResult
     func load<T>(_ resource: Resource<T>) async throws -> T
 }
+@available(iOS 15.0, *)
 class NetworkService: NetworkServiceTypes {
     private let session: URLSession
     

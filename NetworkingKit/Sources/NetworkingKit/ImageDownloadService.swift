@@ -23,6 +23,7 @@ protocol ImagedownloadServiceType: AnyObject {
 }
 
 
+@available(iOS 15.0, *)
 class ImagedownloadService: ImagedownloadServiceType {
     func downloadImage(from url: URL) async throws -> UIImage {
         let (data, response) = try await URLSession.shared.data(from: url)
