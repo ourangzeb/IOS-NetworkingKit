@@ -21,7 +21,6 @@ You can use Swift Package Manager to integrate NetworkingKit into your Xcode pro
 3. Follow the prompts to specify the version or branch you want to use.
 4. Add NetworkingKit to your target dependencies.
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
 
 ```bash
 dependencies: [
