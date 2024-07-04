@@ -19,6 +19,7 @@ enum ImageSize {
     }
 }
 protocol ImagedownloadServiceType: AnyObject {
+    @available(iOS 13.0.0, *)
     func downloadImage(from url: URL) async throws -> UIImage
 }
 
