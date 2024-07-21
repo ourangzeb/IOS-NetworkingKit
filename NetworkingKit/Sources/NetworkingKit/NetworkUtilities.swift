@@ -1,6 +1,6 @@
 //
-//  NetworkRequests.swift
-//  MVVMSample
+//  NetworkUtilities.swift
+
 //
 //  Created by Khan on 03/03/2023.
 //
