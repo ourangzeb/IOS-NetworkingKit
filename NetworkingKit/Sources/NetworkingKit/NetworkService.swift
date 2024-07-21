@@ -7,13 +7,12 @@
 
 import Foundation
 
-
-@available(iOS 13.0.0, *)
+@available(iOS 13.0, *)
 protocol NetworkServiceTypes: AnyObject {
-    
     @discardableResult
     func load<T>(_ resource: Resource<T>) async throws -> T
 }
+
 @available(iOS 15.0, *)
 class NetworkService: NetworkServiceTypes {
     private let session: URLSession
@@ -21,9 +20,10 @@ class NetworkService: NetworkServiceTypes {
     init(session: URLSession = URLSession(configuration: URLSessionConfiguration.ephemeral)) {
         self.session = session
     }
+    
     @discardableResult
-    func load<T:Decodable> (_ resource: Resource<T>) async throws -> T  {
-        guard let request = resource.request else {
+    func load<T: Decodable>(_ resource: Resource<T>) async throws -> T {
+        guard let request = resource.makeRequest() else {
             throw NetworkError.invalidRequest
         }
         
