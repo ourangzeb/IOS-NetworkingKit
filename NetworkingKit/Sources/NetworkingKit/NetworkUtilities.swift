@@ -3,7 +3,6 @@
 
 //
 //  Created by Khan on 03/03/2023.
-//
 import Foundation
 
 // Define the HttpMethod enum
@@ -35,24 +34,27 @@ struct Resource<T: Decodable>: Endpoint {
     func makeRequest() -> URLRequest? {
         switch httpMethod {
         case .get:
-            return makeGetRequest()
+            return try? makeGetRequest()
         case .post:
-            return makePostRequest()
+            return try? makePostRequest()
         }
     }
     
-    private func makeGetRequest() -> URLRequest? {
+    private func makeGetRequest() throws -> URLRequest {
         guard var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
-            return nil
+            throw NetworkError.invalidURLComponents
         }
         components.queryItems = parameters.map { key, value in
             URLQueryItem(name: key, value: value.description)
         }
-        guard let url = components.url else { return nil }
-        return URLRequest(url: url)
+        guard let finalURL = components.url else {
+            throw NetworkError.invalidURLComponents
+        }
+        return URLRequest(url: finalURL)
     }
+
     
-    private func makePostRequest() -> URLRequest? {
+    private func makePostRequest() throws -> URLRequest {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = httpMethod.rawValue
         urlRequest.httpBody = parameters.percentEncoded()
@@ -61,16 +63,19 @@ struct Resource<T: Decodable>: Endpoint {
     }
 }
 
+// Define NetworkError enum for better error handling
+
+
 // Dictionary extension for percent encoding
 extension Dictionary where Key == String, Value == CustomStringConvertible {
     func percentEncoded() -> Data? {
-        return map { key, value in
+        let encodedString = map { key, value in
             let escapedKey = key.addingPercentEncoding(withAllowedCharacters: .urlQueryValueAllowed) ?? key
             let escapedValue = value.description.addingPercentEncoding(withAllowedCharacters: .urlQueryValueAllowed) ?? value.description
             return "\(escapedKey)=\(escapedValue)"
         }
         .joined(separator: "&")
-        .data(using: .utf8)
+        return encodedString.data(using: .utf8)
     }
 }
 
@@ -82,4 +87,3 @@ extension CharacterSet {
         return allowed
     }()
 }
-
