@@ -7,13 +7,18 @@
 
 import Foundation
 
+//public struct ApiConstants {
+//    public static var apiKey = "181af7fcab50e40fabe2d10cc8b90e37"
+//       public static var baseUrl = "https://api.themoviedb.org/3"
+//       public static var originalImageUrl = "https://image.tmdb.org/t/p/original"
+//       public static var smallImageUrl = "https://image.tmdb.org/t/p/w154"
+//}
+
 public struct ApiConstants {
-    public static var apiKey = "181af7fcab50e40fabe2d10cc8b90e37"
-       public static var baseUrl = URL(string: "https://api.themoviedb.org/3")!
-       public static var originalImageUrl = URL(string: "https://image.tmdb.org/t/p/original")!
-       public static var smallImageUrl = URL(string: "https://image.tmdb.org/t/p/w154")!
+    public static let apiKey = "181af7fcab50e40fabe2d10cc8b90e37"
+    public static let baseUrl = "https://api.themoviedb.org/3"
+    public static let originalImageUrl = "https://image.tmdb.org/t/p/original"
+    public static let smallImageUrl = "https://image.tmdb.org/t/p/w154"
 }
-
-
 
 

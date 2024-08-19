@@ -24,7 +24,7 @@ final class NetworkErrorTests: XCTestCase {
         XCTAssertEqual(error.localizedDescription, "The data is invalid.")
     }
     func testinvalidResponseErrorDescrion() {
-        let error = NetworkError.invalidResponse
+        _ = NetworkError.invalidResponse
         XCTAssertEqual(NetworkError.invalidResponse.localizedDescription, "The response is invalid.")
     }
     func testUrlErrorDescription() {

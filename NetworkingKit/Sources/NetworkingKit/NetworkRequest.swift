@@ -11,7 +11,7 @@ enum HttpMethod: String {
     case get = "GET"
     case post = "POST"
 }
-struct Resource<T:Decodable> {
+struct NetworkRequest<T:Decodable> {
     
     let url: URL
     let parameters: [String: CustomStringConvertible]
@@ -23,11 +23,11 @@ struct Resource<T:Decodable> {
         self.httpMethod = HttpMethod.get
         }
 
-//    init(url: URL, parameters: [String: CustomStringConvertible] = [:], httpMethod: HttpMethod = .get ) {
-//            self.url = url
-//            self.parameters = parameters
-//        self.httpMethod = httpMethod
-//        }
+    init(url: URL, parameters: [String: CustomStringConvertible] = [:], httpMethod: HttpMethod = .get ) {
+            self.url = url
+            self.parameters = parameters
+        self.httpMethod = httpMethod
+        }
     
     var request: URLRequest? {
         guard var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {

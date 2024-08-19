@@ -21,7 +21,7 @@ class ServiceManager {
         self.imageService = imageService
     }
     
-    func fetchData<T: Decodable>(with resource: Resource<T>) async throws -> T {
+    func fetchData<T: Decodable>(with resource: NetworkRequest<T>) async throws -> T {
         return try await networkService.load(resource)
     }
     

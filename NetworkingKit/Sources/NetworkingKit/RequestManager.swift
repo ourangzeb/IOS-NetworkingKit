@@ -12,7 +12,7 @@ import Foundation
 protocol NetworkServiceTypes: AnyObject {
     
     @discardableResult
-    func load<T>(_ resource: Resource<T>) async throws -> T
+    func load<T>(_ resource: NetworkRequest<T>) async throws -> T
 }
 @available(iOS 15.0, *)
 class NetworkService: NetworkServiceTypes {
@@ -22,7 +22,7 @@ class NetworkService: NetworkServiceTypes {
         self.session = session
     }
     @discardableResult
-    func load<T:Decodable> (_ resource: Resource<T>) async throws -> T  {
+    func load<T:Decodable> (_ resource: NetworkRequest<T>) async throws -> T  {
         guard let request = resource.request else {
             throw NetworkError.invalidRequest
         }

@@ -13,8 +13,8 @@ enum ImageSize {
     case original
     var url: URL {
         switch self {
-        case .small: return ApiConstants.smallImageUrl
-        case .original: return ApiConstants.originalImageUrl
+        case .small: return URL(string: ApiConstants.smallImageUrl)!
+        case .original: return URL(string: ApiConstants.originalImageUrl)!
         }
     }
 }

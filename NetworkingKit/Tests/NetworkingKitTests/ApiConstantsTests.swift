@@ -17,32 +17,32 @@ class ApiConstantsTests: XCTestCase {
        
        func testBaseUrl() {
            // Test that the baseUrl is correctly set and is a valid URL
-           XCTAssertEqual(ApiConstants.baseUrl.absoluteString, "https://api.themoviedb.org/3", "Base URL does not match expected value.")
+           XCTAssertEqual(ApiConstants.baseUrl, "https://api.themoviedb.org/3", "Base URL does not match expected value.")
        }
 
        func testOriginalImageUrl() {
            // Test that the originalImageUrl is correctly set and is a valid URL
-           XCTAssertEqual(ApiConstants.originalImageUrl.absoluteString, "https://image.tmdb.org/t/p/original", "Original image URL does not match expected value.")
+           XCTAssertEqual(ApiConstants.originalImageUrl, "https://image.tmdb.org/t/p/original", "Original image URL does not match expected value.")
        }
        
        func testSmallImageUrl() {
            // Test that the smallImageUrl is correctly set and is a valid URL
-           XCTAssertEqual(ApiConstants.smallImageUrl.absoluteString, "https://image.tmdb.org/t/p/w154", "Small image URL does not match expected value.")
+           XCTAssertEqual(ApiConstants.smallImageUrl, "https://image.tmdb.org/t/p/w154", "Small image URL does not match expected value.")
        }
 
        func testValidBaseUrl() {
            // Test that the baseUrl is a valid URL
-           XCTAssertNotNil(URL(string: ApiConstants.baseUrl.absoluteString), "Base URL is not valid.")
+           XCTAssertNotNil(URL(string: ApiConstants.baseUrl), "Base URL is not valid.")
        }
 
        func testValidOriginalImageUrl() {
            // Test that the originalImageUrl is a valid URL
-           XCTAssertNotNil(URL(string: ApiConstants.originalImageUrl.absoluteString), "Original image URL is not valid.")
+           XCTAssertNotNil(URL(string: ApiConstants.originalImageUrl), "Original image URL is not valid.")
        }
 
        func testValidSmallImageUrl() {
            // Test that the smallImageUrl is a valid URL
-           XCTAssertNotNil(URL(string: ApiConstants.smallImageUrl.absoluteString), "Small image URL is not valid.")
+           XCTAssertNotNil(URL(string: ApiConstants.smallImageUrl), "Small image URL is not valid.")
        }
     
     
