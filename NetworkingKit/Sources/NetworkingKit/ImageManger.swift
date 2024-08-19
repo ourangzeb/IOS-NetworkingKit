@@ -18,13 +18,14 @@ enum ImageSize {
         }
     }
 }
-protocol ImagedownloadServiceType: AnyObject {
+protocol ImageServiceType: AnyObject {
+    @available(iOS 13.0.0, *)
     func downloadImage(from url: URL) async throws -> UIImage
 }
 
 
 @available(iOS 15.0, *)
-class ImagedownloadService: ImagedownloadServiceType {
+class ImageManger: ImageServiceType {
     func downloadImage(from url: URL) async throws -> UIImage {
         let (data, response) = try await URLSession.shared.data(from: url)
         guard let httpResponse = response as? HTTPURLResponse,
