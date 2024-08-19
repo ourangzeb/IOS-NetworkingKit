@@ -13,10 +13,10 @@ import UIKit
 class ServiceManager {
     private let networkService: NetworkServiceTypes
     
-    private let imageService: ImagedownloadServiceType
+    private let imageService: ImageServiceType
    
     @available(iOS 15.0, *)
-    init(networkService: NetworkServiceTypes =  NetworkService(), imageService: ImagedownloadServiceType = ImagedownloadService() ) {
+    init(networkService: NetworkServiceTypes =  NetworkService(), imageService: ImageServiceType = ImageManger() ) {
         self.networkService = networkService
         self.imageService = imageService
     }
