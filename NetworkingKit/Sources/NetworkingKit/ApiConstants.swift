@@ -13,3 +13,7 @@ public struct ApiConstants {
        public static var originalImageUrl = URL(string: "https://image.tmdb.org/t/p/original")!
        public static var smallImageUrl = URL(string: "https://image.tmdb.org/t/p/w154")!
 }
+
+
+
+
